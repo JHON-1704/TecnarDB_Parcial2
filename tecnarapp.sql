@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Versión del servidor:         10.4.32-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             12.10.0.7027
+-- HeidiSQL Versión:             12.10.0.7000
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,28 +16,28 @@
 
 
 -- Volcando estructura de base de datos para tecnarapp
-DROP DATABASE IF EXISTS `tecnarapp`;
 CREATE DATABASE IF NOT EXISTS `tecnarapp` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
 USE `tecnarapp`;
 
 -- Volcando estructura para tabla tecnarapp.clientes
-DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
   `Apellido` varchar(100) NOT NULL,
   `Direccion` varchar(100) NOT NULL,
   `Telefono` varchar(100) NOT NULL,
+  `Email` varchar(100) DEFAULT NULL,
+  `FechaNacimiento` date DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Volcando datos para la tabla tecnarapp.clientes: ~0 rows (aproximadamente)
-DELETE FROM `clientes`;
-INSERT INTO `clientes` (`Id`, `Nombre`, `Apellido`, `Direccion`, `Telefono`) VALUES
-	(1, 'Ivan Dario2', 'Narvaez', '13 de junio', '3012214332');
+-- Volcando datos para la tabla tecnarapp.clientes: ~3 rows (aproximadamente)
+INSERT INTO `clientes` (`Id`, `Nombre`, `Apellido`, `Direccion`, `Telefono`, `Email`, `FechaNacimiento`) VALUES
+	(1, 'Ivan Dario2', 'Narvaez', '13 de junio', '3012214332', NULL, NULL),
+	(3, 'dadas', 'dasdas', 'adssad', 'asdasda', 'asdasdas', '2024-12-12'),
+	(4, 'ffadsa', 'fsafas', 'afasfas', 'afsafas', 'asfasfa', '2024-02-12');
 
 -- Volcando estructura para tabla tecnarapp.usuarios
-DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
@@ -46,13 +46,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `Email` varchar(100) NOT NULL,
   `Clave` varchar(100) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Volcando datos para la tabla tecnarapp.usuarios: ~2 rows (aproximadamente)
-DELETE FROM `usuarios`;
+-- Volcando datos para la tabla tecnarapp.usuarios: ~6 rows (aproximadamente)
 INSERT INTO `usuarios` (`Id`, `Nombre`, `Apellido`, `Username`, `Email`, `Clave`) VALUES
 	(1, 'Ivan', 'Narvaez', 'namey811', 'namey811@gmail.com', 'abc123'),
-	(2, 'Sandra', 'Lagares', 'slagares', 'slagaes@gmail.com', 'abc123');
+	(2, 'Sandra', 'Lagares', 'slagares', 'slagaes@gmail.com', 'abc123'),
+	(3, 'NombrePrueba', 'ApellidoPrueba', 'nombreusuario', 'namey@gmail.com', '12345'),
+	(4, 'jhon', 'jairo', 'jhon1', '', ''),
+	(5, 'jhonjairo', 'r', 'jho33', '', ''),
+	(6, 'dsada', 'dasdas', 'sdasd', 'dasdsad', 'adsda');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
